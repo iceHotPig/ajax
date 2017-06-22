@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <script type="text/javascript">
+    window.onload=function(){
+      var xbtn=document.getElementById('btn');
+      var xtext=document.getElementById('text')
+      xbtn.onclick=function(){
+      var sta=new XMLHttpRequest();
+          sta.open('get','./eg.txt?'+new Date(),true)
+          sta.send();
+          sta.onreadystatechange=function(){
+            if (sta.readyState==4) {
+              if (sta.status==200) {
+                   text.innerHTML=sta.responseText;
+              }
+            }
+          }
+        }
+      }
+  </script>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <p id="text">hello ajax</p>
+</body>
+</html>
